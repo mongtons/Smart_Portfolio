@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:text="프로젝트 제목을 입력하세요."
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:fontFamily="@font/seoulhangang"/>
+    <EditText
+        android:id="@+id/addTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:hint="50자 이내로 작성하시오."/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"
+        android:text="프로젝트 내용을 입력하세요."
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:fontFamily="@font/seoulhangang"/>
+    <EditText
+        android:id="@+id/addSummary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:hint="1000자 이내로 작성하시오."/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"
+        android:text="프로젝트 카테고리를 입력하세요."
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:fontFamily="@font/seoulhangang"/>
+    <EditText
+        android:id="@+id/category"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:hint="데이터베이스, 스프링부트 etc..."/>
+</LinearLayout>

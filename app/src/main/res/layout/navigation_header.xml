@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="#DFD0C0">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="20dp"
+        android:fitsSystemWindows="true"
+        android:text="JIHWAN KIM"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:textSize="30dp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="20dp"
+        android:text="Smart Portfolio"
+        android:textSize="20dp"
+        android:textStyle="italic"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="5dp">
+        <Button
+            android:id="@+id/github_logo"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@drawable/github"
+            android:text="https://github.com/mongtons"
+            android:textSize="0dp"
+            android:autoLink="web"/>
+        <Button
+            android:id="@+id/gmail_logo"
+            android:layout_width="30dp"
+            android:layout_height="35dp"
+            android:layout_marginLeft="30dp"
+            android:background="@drawable/gmail"
+            android:layout_toRightOf="@id/github_logo"
+            android:text="mongtons990213@gmail.com"
+            android:textSize="0dp"
+            android:autoLink="email"/>
+        <Button
+            android:id="@+id/instagram_logo"
+            android:layout_width="33dp"
+            android:layout_height="33dp"
+            android:layout_marginLeft="30dp"
+            android:background="@drawable/instagram"
+            android:layout_toRightOf="@id/gmail_logo"
+            android:text="https://www.instagram.com/kji._.hwan/"
+            android:textSize="0dp"
+            android:autoLink="web"/>
+    </RelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="15dp"
+        android:background="#D0D0D0"/>
+</LinearLayout>

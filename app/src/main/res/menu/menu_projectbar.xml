@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/refresh_Button"
+        android:title="REFRESH"
+        android:icon="@drawable/updates_bar"
+        app:showAsAction="always"/>
+    <item
+        android:id="@+id/delete_allButton"
+        android:title="DELETE ALL"
+        android:icon="@drawable/trash"
+        app:showAsAction="always"/>
+    <item
+        android:id="@+id/profile"
+        android:title="profile"
+        app:actionLayout="@layout/profile_menu_layout"
+        app:showAsAction="always"/>
+</menu>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/mongt/Android/MobileProject/app/src/main/res/drawable/border_layout.xml" value="0.1495" />
+        <entry key="..\:/Users/mongt/Android/MobileProject/app/src/main/res/drawable/fragment_layout.xml" value="0.1595" />
+        <entry key="..\:/Users/mongt/Android/MobileProject/app/src/main/res/drawable/icon_image.xml" value="0.159" />
+        <entry key="..\:/Users/mongt/Android/MobileProject/app/src/main/res/drawable/recycler_layout.xml" value="0.1535" />
+        <entry key="..\:/Users/mongt/Android/MobileProject/app/src/main/res/layout/activity_about.xml" value="0.17223910840932116" />
+        <entry key="..\:/Users/mongt/Android/MobileProject/app/src/main/res/layout/activity_main.xml" value="0.17274569402228976" />
+        <entry key="..\:/Users/mongt/Android/MobileProject/app/src/main/res/layout/activity_main2.xml" value="0.17274569402228976" />
+        <entry key="..\:/Users/mongt/Android/MobileProject/app/src/main/res/layout/activity_main_page.xml" value="0.1" />
+        <entry key="..\:/Users/mongt/Android/MobileProject/app/src/main/res/layout/activity_profile.xml" value="0.302536231884058" />
+        <entry key="..\:/Users/mongt/Android/MobileProject/app/src/main/res/layout/activity_project.xml" value="0.1" />
+        <entry key="..\:/Users/mongt/Android/MobileProject/app/src/main/res/layout/activity_splash.xml" value="0.17274569402228976" />
+        <entry key="..\:/Users/mongt/Android/MobileProject/app/src/main/res/layout/delete_db.xml" value="0.2760416666666667" />
+        <entry key="..\:/Users/mongt/Android/MobileProject/app/src/main/res/layout/fragment_one.xml" value="0.17274569402228976" />
+        <entry key="..\:/Users/mongt/Android/MobileProject/app/src/main/res/layout/fragment_three.xml" value="0.17274569402228976" />
+        <entry key="..\:/Users/mongt/Android/MobileProject/app/src/main/res/layout/fragment_two.xml" value="0.17274569402228976" />
+        <entry key="..\:/Users/mongt/Android/MobileProject/app/src/main/res/layout/input_db.xml" value="0.3016304347826087" />
+        <entry key="..\:/Users/mongt/Android/MobileProject/app/src/main/res/layout/item_fragment_one.xml" value="0.17274569402228976" />
+        <entry key="..\:/Users/mongt/Android/MobileProject/app/src/main/res/layout/item_fragment_three.xml" value="0.302536231884058" />
+        <entry key="..\:/Users/mongt/Android/MobileProject/app/src/main/res/layout/item_fragment_two.xml" value="0.17274569402228976" />
+        <entry key="..\:/Users/mongt/Android/MobileProject/app/src/main/res/layout/item_main.xml" value="0.3333333333333333" />
+        <entry key="..\:/Users/mongt/Android/MobileProject/app/src/main/res/layout/navigation_footer.xml" value="0.17274569402228976" />
+        <entry key="..\:/Users/mongt/Android/MobileProject/app/src/main/res/layout/navigation_header.xml" value="0.17223910840932116" />
+        <entry key="..\:/Users/mongt/Android/MobileProject/app/src/main/res/layout/profile_menu_layout.xml" value="2.0" />
+        <entry key="..\:/Users/mongt/Android/MobileProject/app/src/main/res/menu/menu_navigation.xml" value="0.34974358974358977" />
+        <entry key="..\:/Users/mongt/Android/MobileProject/app/src/main/res/menu/menu_projectbar.xml" value="0.35520833333333335" />
+        <entry key="..\:/Users/mongt/Android/MobileProject/app/src/main/res/menu/menu_toolbar.xml" value="0.34974358974358977" />
+        <entry key="..\:/Users/mongt/Android/MobileProject/app/src/main/res/menu/toolbar_menu.xml" value="0.34974358974358977" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
