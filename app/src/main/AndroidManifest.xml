@@ -2,17 +2,20 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="kr.ac.hallym.mobileproject">
-    
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/project_app_icon"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/project_app_icon"
         android:supportsRtl="true"
         android:theme="@style/Theme.MobileProject"
         tools:targetApi="31">
+        <activity
+            android:name=".EditActivity"
+            android:exported="false" />
         <activity
             android:name=".MainPageActivity"
             android:exported="false" />
@@ -35,13 +38,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <provider
-            android:authorities="kr.ac.hallym.mobileproject.fileprovider"
             android:name="androidx.core.content.FileProvider"
+            android:authorities="kr.ac.hallym.mobileproject.fileprovider"
             android:exported="false"
             android:grantUriPermissions="true">
-            <meta-data android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/file_paths"></meta-data>
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
         </provider>
     </application>
+
 </manifest>

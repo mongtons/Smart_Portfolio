@@ -1,19 +1,22 @@
 package kr.ac.hallym.mobileproject
 
 import android.content.Intent
+import android.graphics.BitmapFactory
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.core.content.ContextCompat.startActivity
 import kr.ac.hallym.mobileproject.databinding.ActivityMainPageBinding
 
 class MainPageActivity : AppCompatActivity() {
     val binding by lazy{
         ActivityMainPageBinding.inflate(layoutInflater)
     }
-    lateinit var toggle: ActionBarDrawerToggle
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)

@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.core.app.ActivityCompat
 import kr.ac.hallym.mobileproject.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -28,6 +29,7 @@ class MainActivity : AppCompatActivity() {
             flag=!flag
         }else {
             super.onBackPressed()
+            ActivityCompat.finishAffinity(this)
             finish()
         }
     }
