@@ -69,7 +69,6 @@ class ProjectActivity : AppCompatActivity() {
             }
         }
     }
-    lateinit var languageMap: MutableMap<String, Int>
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
@@ -77,51 +76,13 @@ class ProjectActivity : AppCompatActivity() {
         setSupportActionBar(binding.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        languageMap= mutableMapOf()
         val data=db.readableDatabase
         val cursor=data.rawQuery("SELECT * FROM Project;", null)
         var i=0
         while(cursor.moveToNext()){
             contents.add(Project(++i, cursor.getString(1).toString(), cursor.getString(2).toString(),
                 cursor.getString(3)))
-            if(languageMap.containsKey(cursor.getString(3))){
-                var num:Int=languageMap.get(cursor.getString(3))!!
-                languageMap[cursor.getString(3)] = ++num
-            }else{
-                languageMap.put(cursor.getString(3), 1)
-            }
         }
-
-        val languageList= mutableListOf<String>()
-        var first:String=""
-        var firstNum:Int=0
-        var second:String=""
-        var secondNum:Int=0
-        var third:String=""
-        var thirdNum:Int=0
-
-        for((key, value) in languageMap){
-            languageList.add(key)
-        }
-        for(j in 0 until languageList.size){
-            if(firstNum<languageMap[languageList[j]]!!) {
-                firstNum = languageMap[languageList[j]]!!
-                first=languageList[j]
-            }
-        }
-        for(j in 0 until languageList.size){
-            if(secondNum<languageMap[languageList[j]]!! && firstNum>languageMap[languageList[j]]!!) {
-                secondNum = languageMap[languageList[j]]!!
-                second=languageList[j]
-            }
-        }
-        for(j in 0 until languageList.size){
-            if(thirdNum<languageMap[languageList[j]]!! && secondNum>languageMap[languageList[j]]!!) {
-                thirdNum = languageMap[languageList[j]]!!
-                third=languageList[j]
-            }
-        }
-        Log.d("kkang", "first: $first, second: $second, third: $third")
 
         val layoutManager= LinearLayoutManager(this)
         binding.recyclerview.layoutManager=layoutManager
@@ -133,10 +94,6 @@ class ProjectActivity : AppCompatActivity() {
             when(it.title){
                 "HOME" ->{
                     intent= Intent(this, MainPageActivity::class.java)
-                    intent.putExtra("firstLanguage", first)
-                    intent.putExtra("secondLanguage", second)
-                    intent.putExtra("thirdLanguage", third)
-
                     startActivity(intent)
                 }
                 "ABOUT" ->{

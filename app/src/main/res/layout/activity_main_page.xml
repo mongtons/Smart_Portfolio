@@ -40,10 +40,12 @@
                 android:background="@drawable/border_layout"
                 android:padding="10dp">
                 <ImageView
+                    android:id="@+id/firstLangImg"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:src="@drawable/java_icon"/>
                 <TextView
+                    android:id="@+id/firstLang"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="12dp"
@@ -60,10 +62,12 @@
                 android:background="@drawable/border_layout"
                 android:padding="10dp">
                 <ImageView
+                    android:id="@+id/secondLangImg"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:src="@drawable/mysql_icon"/>
                 <TextView
+                    android:id="@+id/secondLang"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="MySQL"
@@ -80,10 +84,12 @@
                 android:background="@drawable/border_layout"
                 android:padding="10dp">
                 <ImageView
+                    android:id="@+id/thirdLangImg"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:src="@drawable/springboot"/>
                 <TextView
+                    android:id="@+id/thirdLang"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Spring Boot"
