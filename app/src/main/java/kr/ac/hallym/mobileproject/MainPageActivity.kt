@@ -53,13 +53,15 @@ class MainPageActivity : AppCompatActivity() {
             }
         }
         for(j in 0 until languageList.size){
-            if(languageNum[1]<languageMap[languageList[j]]!! && languageNum[0]>languageMap[languageList[j]]!!) {
+            if(languageNum[1]<languageMap[languageList[j]]!! && languageNum[0]>=languageMap[languageList[j]]!! &&
+                    !languageRank[0].equals(languageList[j])) {
                 languageNum[1] = languageMap[languageList[j]]!!
                 languageRank[1]=languageList[j]
             }
         }
         for(j in 0 until languageList.size){
-            if(languageNum[2]<languageMap[languageList[j]]!! && languageNum[1]>languageMap[languageList[j]]!!) {
+            if(languageNum[2]<languageMap[languageList[j]]!! && languageNum[1]>=languageMap[languageList[j]]!! &&
+                !languageRank[1].equals(languageList[j]) && !languageRank[0].equals(languageList[j])) {
                 languageNum[2] = languageMap[languageList[j]]!!
                 languageRank[2]=languageList[j]
             }
