@@ -31,21 +31,17 @@ class AboutActivity : AppCompatActivity() {
             tab.text=arr[position]
         }.attach()
 
-        val requestLauncher: ActivityResultLauncher<Intent> = registerForActivityResult(
-            ActivityResultContracts.StartActivityForResult()) {}
         aboutBinding.mainDrawer.setNavigationItemSelectedListener {
             val intent: Intent
             when (it.title) {
                 "HOME" -> {
                     intent = Intent(this, MainPageActivity::class.java)
-                    requestLauncher.launch(intent)
+                    startActivity(intent)
                 }
-                "ABOUT" -> {
-
-                }
+                "ABOUT" -> { }
                 "PROJECT" -> {
                     intent = Intent(this, ProjectActivity::class.java)
-                    requestLauncher.launch(intent)
+                    startActivity(intent)
                 }
             }
             true

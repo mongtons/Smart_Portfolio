@@ -30,45 +30,12 @@ class ProjectActivity : AppCompatActivity() {
     val binding by lazy {
         ActivityProjectBinding.inflate(layoutInflater)
     }
-    val itemBinding by lazy {
-        ItemMainBinding.inflate(layoutInflater)
-    }
     val dialogBinding by lazy {
         InputDbBinding.inflate(layoutInflater)
     }
-    lateinit var holder: RecyclerView.ViewHolder
     val db=DBHelper(this)
     var contents= mutableListOf<Project>()
-    val requestGalleryLauncher by lazy{
-        registerForActivityResult(
-            ActivityResultContracts.StartActivityForResult()){
-            try{
-                val calRatio=calculateInSampleSize(
-                    it.data!!.data!!,
-                    resources.getDimensionPixelSize(R.dimen.imgSize),
-                    resources.getDimensionPixelSize(R.dimen.imgSize)
-                )
-                holder=MyViewHolder(itemBinding)
 
-                val option= BitmapFactory.Options()
-                option.inSampleSize=calRatio
-
-                var inputStream=contentResolver.openInputStream(it.data!!.data!!)
-                val bitmap=BitmapFactory.decodeStream(inputStream, null, option)
-                inputStream!!.close()
-                inputStream=null
-
-                bitmap?.let {
-                    var binding=(holder as MyViewHolder).binding
-                    binding.itemImage.setImageBitmap(bitmap)
-                }?:let {
-                    Log.d("kkang", "bitmap null")
-                }
-            }catch (e:Exception){
-                Log.d("kkang", "bitmap null")
-            }
-        }
-    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
@@ -81,12 +48,12 @@ class ProjectActivity : AppCompatActivity() {
         var i=0
         while(cursor.moveToNext()){
             contents.add(Project(++i, cursor.getString(1).toString(), cursor.getString(2).toString(),
-                cursor.getString(3)))
+                cursor.getString(3), cursor.getString(4)))
         }
 
         val layoutManager= LinearLayoutManager(this)
         binding.recyclerview.layoutManager=layoutManager
-        val adapter=MyAdapter(contents, this, dialogBinding, requestGalleryLauncher)
+        val adapter=MyAdapter(contents, this, dialogBinding)
         binding.recyclerview.adapter=adapter
 
         binding.mainDrawer.setNavigationItemSelectedListener {
@@ -114,11 +81,13 @@ class ProjectActivity : AppCompatActivity() {
                     AlertDialog.Builder(this).run {
                         setTitle("Insert Project")
                         setView(dialogBinding.root)
-                        setPositiveButton("확인",DialogInterface.OnClickListener { dialogInterface, id ->
-                            db.writableDatabase.execSQL("INSERT INTO Project (title, summary, category) VALUES (?, ?, ?);",
+                        setPositiveButton("확인", DialogInterface.OnClickListener { dialogInterface, id ->
+                            db.writableDatabase.execSQL("INSERT INTO Project (title, summary, category, link) " +
+                                    "VALUES (?, ?, ?, ?);",
                                 arrayOf(dialogBinding.addTitle.text.toString(),
                                     dialogBinding.addSummary.text.toString(),
-                                    dialogBinding.category.text.toString()))
+                                    dialogBinding.category.text.toString(),
+                                    dialogBinding.link.text.toString()))
                             db.close()
                             finish()
                             overridePendingTransition(0, 0)
@@ -160,8 +129,10 @@ class ProjectActivity : AppCompatActivity() {
                     "id integer primary key autoincrement not null,"+
                     "title text not null,"+
                     "summary text not null,"+
-                    "category text"+
-                    ");")
+                    "category text,"+
+                    "link text"+
+                    ");"
+            )
             db.close()
             finish()
             overridePendingTransition(0, 0)
@@ -172,45 +143,21 @@ class ProjectActivity : AppCompatActivity() {
         }
         else -> super.onOptionsItemSelected(item)
     }
-    private fun calculateInSampleSize(fileUri: Uri, reqWidth: Int, reqHeight: Int):Int{
-        val options=BitmapFactory.Options()
-        options.inJustDecodeBounds=true
-        try {
-            var inputStream=contentResolver.openInputStream(fileUri)
-            BitmapFactory.decodeStream(inputStream, null, options)
-            inputStream!!.close()
-            inputStream=null
-        }catch (e: Exception){
-            e.printStackTrace()
-        }
-        val (height: Int, width: Int)=options.run {
-            outHeight to outWidth
-        }
-        var inSampleSize=1
-        if(height>reqHeight || width>reqWidth){
-            val halfHeight:Int=height/2
-            val halfWidth:Int=width/2
-            while(halfHeight/inSampleSize >= reqHeight &&
-                    halfWidth/inSampleSize >= reqWidth){
-                inSampleSize*=2
-            }
-        }
-        return inSampleSize
-    }
 }
 class MyViewHolder(val binding: ItemMainBinding): RecyclerView.ViewHolder(binding.root)
-class MyAdapter(var contents: MutableList<Project>, var context: Context,
-                var dialogBinding: InputDbBinding, var requestGalleryLauncher:ActivityResultLauncher<Intent>):
+class MyAdapter(var contents: MutableList<Project>, var context: Context, var dialogBinding: InputDbBinding):
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+
     var db=DBHelper(context)
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder=
         MyViewHolder((ItemMainBinding.inflate(LayoutInflater.from(parent.context), parent, false)))
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val binding=(holder as MyViewHolder).binding
         binding.itemNo.text=contents[position]!!.id.toString()
-        binding.itemTitle.text=contents[position]!!.title.toString()
-        binding.itemSummary.text=contents[position]!!.summary.toString()
+        binding.itemTitle.text= contents[position]!!.title
+        binding.itemSummary.text= contents[position]!!.summary
         binding.category.text="카테고리: ${contents[position]!!.category.toString()}"
         when(contents[position]!!.category){
             "데이터베이스" ->{
@@ -242,11 +189,16 @@ class MyAdapter(var contents: MutableList<Project>, var context: Context,
                 setTitle("Update Project")
                 setView(dialogBinding.root)
                 setPositiveButton("확인",DialogInterface.OnClickListener { dialogInterface, id ->
-                    db.writableDatabase.execSQL("UPDATE Project SET title=(?), summary=(?), category=(?) WHERE title=(?);",
+                    db.writableDatabase.execSQL("UPDATE Project SET " +
+                            "title=(?), summary=(?), category=(?), link=(?)" +
+                            "WHERE title=(?);",
                         arrayOf(dialogBinding.addTitle.text.toString(),
                             dialogBinding.addSummary.text.toString(),
                             dialogBinding.category.text.toString(),
-                            contents[position].title))
+                            dialogBinding.link.text.toString(),
+                            contents[position].title
+                        )
+                    )
                     db.close()
                     val intent=Intent(context, ProjectActivity::class.java)
                     context.startActivity(intent)
@@ -255,14 +207,18 @@ class MyAdapter(var contents: MutableList<Project>, var context: Context,
                 show()
             }
         }
-        binding.updatePicture.setOnClickListener {
-            val intent=Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
-            intent.type="image/*"
-            requestGalleryLauncher.launch(intent)
+        binding.itemRoot.setOnClickListener {
+            Log.d("kkang", "click item: $position")
+            if (contents[position].link!=null){
+                val intent=Intent(android.content.Intent.ACTION_VIEW)
+                intent.data=Uri.parse(contents[position].link)
+                context.startActivity(intent)
+            }else
+                Toast.makeText(context, "해당 프로젝트의 링크가 존재하지 않습니다.", Toast.LENGTH_SHORT).show()
         }
     }
 
     override fun getItemCount(): Int {
-        return contents?.size?:0
+        return contents?.size
     }
 }

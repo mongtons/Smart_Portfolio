@@ -5,8 +5,12 @@
       <map>
         <entry key="..\:/Users/mongt/Android/MobileProject/app/src/main/res/drawable/border_layout.xml" value="0.1495" />
         <entry key="..\:/Users/mongt/Android/MobileProject/app/src/main/res/drawable/fragment_layout.xml" value="0.1595" />
+        <entry key="..\:/Users/mongt/Android/MobileProject/app/src/main/res/drawable/ic_launcher_background.xml" value="0.158" />
         <entry key="..\:/Users/mongt/Android/MobileProject/app/src/main/res/drawable/icon_image.xml" value="0.159" />
         <entry key="..\:/Users/mongt/Android/MobileProject/app/src/main/res/drawable/recycler_layout.xml" value="0.1535" />
+        <entry key="..\:/Users/mongt/Android/MobileProject/app/src/main/res/layout-land/activity_about.xml" value="0.290625" />
+        <entry key="..\:/Users/mongt/Android/MobileProject/app/src/main/res/layout-land/fragement_one.xml" value="0.2998236331569665" />
+        <entry key="..\:/Users/mongt/Android/MobileProject/app/src/main/res/layout-land/fragment_one.xml" value="0.2998236331569665" />
         <entry key="..\:/Users/mongt/Android/MobileProject/app/src/main/res/layout/activity_about.xml" value="0.17223910840932116" />
         <entry key="..\:/Users/mongt/Android/MobileProject/app/src/main/res/layout/activity_edit.xml" value="0.3588317107093185" />
         <entry key="..\:/Users/mongt/Android/MobileProject/app/src/main/res/layout/activity_main.xml" value="0.17274569402228976" />
@@ -16,7 +20,7 @@
         <entry key="..\:/Users/mongt/Android/MobileProject/app/src/main/res/layout/activity_project.xml" value="0.1" />
         <entry key="..\:/Users/mongt/Android/MobileProject/app/src/main/res/layout/activity_splash.xml" value="0.17274569402228976" />
         <entry key="..\:/Users/mongt/Android/MobileProject/app/src/main/res/layout/delete_db.xml" value="0.2760416666666667" />
-        <entry key="..\:/Users/mongt/Android/MobileProject/app/src/main/res/layout/fragment_one.xml" value="0.17274569402228976" />
+        <entry key="..\:/Users/mongt/Android/MobileProject/app/src/main/res/layout/fragment_one.xml" value="0.25" />
         <entry key="..\:/Users/mongt/Android/MobileProject/app/src/main/res/layout/fragment_three.xml" value="0.17274569402228976" />
         <entry key="..\:/Users/mongt/Android/MobileProject/app/src/main/res/layout/fragment_two.xml" value="0.17274569402228976" />
         <entry key="..\:/Users/mongt/Android/MobileProject/app/src/main/res/layout/input_db.xml" value="0.3016304347826087" />

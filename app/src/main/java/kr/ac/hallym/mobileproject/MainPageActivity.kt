@@ -115,9 +115,7 @@ class MainPageActivity : AppCompatActivity() {
         binding.mainDrawer.setNavigationItemSelectedListener {
             val intent:Intent
             when(it.title){
-                "HOME" ->{
-
-                }
+                "HOME" ->{ }
                 "ABOUT" ->{
                     intent=Intent(this, AboutActivity::class.java)
                     startActivity(intent)

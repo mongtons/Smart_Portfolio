@@ -24,8 +24,7 @@ class MainActivity : AppCompatActivity() {
     }
     override fun onBackPressed() {
         if(flag){
-            val toast= Toast.makeText(this, "종료하려면 한 번 더 누르세요.", Toast.LENGTH_SHORT)
-            toast.show()
+            val toast= Toast.makeText(this, "종료하려면 한 번 더 누르세요.", Toast.LENGTH_SHORT).show()
             flag=!flag
         }else {
             super.onBackPressed()

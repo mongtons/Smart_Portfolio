@@ -48,4 +48,19 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="10dp"
         android:hint="데이터베이스, 스프링부트 etc..."/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"
+        android:text="해당 프로젝트의 링크를 기입하세요."
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:fontFamily="@font/seoulhangang"/>
+    <EditText
+        android:id="@+id/link"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:hint="https://github.com/mongotns"/>
 </LinearLayout>

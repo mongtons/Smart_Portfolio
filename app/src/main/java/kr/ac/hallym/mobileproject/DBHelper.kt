@@ -10,7 +10,8 @@ class DBHelper(context: Context): SQLiteOpenHelper(context, "PortfolioDB", null,
             "id integer primary key autoincrement not null,"+
             "title text not null,"+
             "summary text not null,"+
-            "category text"+
+            "category text,"+
+            "link text"+
             ");"
         )
     }

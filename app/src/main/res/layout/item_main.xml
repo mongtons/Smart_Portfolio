@@ -83,11 +83,6 @@
                 android:layout_width="25dp"
                 android:layout_height="25dp"
                 android:background="@drawable/updates"/>
-            <Button
-                android:id="@+id/update_picture"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:background="@drawable/pictures_folder"/>
         </LinearLayout>
     </LinearLayout>
 </androidx.cardview.widget.CardView>
